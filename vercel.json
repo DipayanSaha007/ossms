@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+      {
+          "src": "salon-service-app/package.json",
+          "use": "@vercel/static-build"
+      },
+      {
+          "src": "salon-service-backend/server.js",
+          "use": "@vercel/node"
+      }
+  ],
+  "routes": [
+      {
+          "src": "/frontend/(.*)",
+          "dest": "/salon-service-app/$1"
+      },
+      {
+          "src": "/backend/(.*)",
+          "dest": "/salon-service-backend/server.js"
+      }
+  ]
+}
